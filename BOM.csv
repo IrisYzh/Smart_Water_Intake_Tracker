@@ -1,0 +1,7 @@
+"Reference","Qty","Value","DNP","Exclude from BOM","Exclude from Board","Footprint","Datasheet"
+"BT1","1","Battery_Cell","","","","","~"
+"D1","1","NeoPixel_THT","","","","","https://www.adafruit.com/product/1938"
+"SW1","1","SW_Push","","","","","~"
+"TAL1","1","TAL221","","","","TAL221",""
+"U1","1","XIAO ESP32C3","","","","XIAO_ESP32C3:xiao_esp32c3","https://files.seeedstudio.com/wiki/Seeed-Studio-XIAO-ESP32/esp32-c3_datasheet.pdf"
+"U2","1","HX711","","","","Package_SO:SOIC-16_3.9x9.9mm_P1.27mm","https://web.archive.org/web/20220615044707/https://akizukidenshi.com/download/ds/avia/hx711.pdf"
