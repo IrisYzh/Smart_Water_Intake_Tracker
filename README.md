@@ -2,15 +2,17 @@
 
 *The Smart Water Intake Tracker is a physical, non-intrusive system that helps users track their daily water intake through passive sensing and dynamic feedback.*  
 
-It consists of a smart sensing coaster and a desktop display gauge, allowing users to track hydration progress without relying on screens or manual input.
+![Overall System Sketch](Ideation/Draft/1.png)
 
-![Overall System Sketch](System-Architecture&Schematics/System-Architecture/001.png)
+This project consists of a smart sensing coaster and a desktop display device that together track and visualize a user’s daily water intake.
+
+By passively detecting drinking events through weight changes and presenting progress via a mechanical gauge, the system encourages hydration without relying on screens or manual input.
 
 ---
 
 ## Sensor Device: Smart Coaster
 
-![Sensor Device Detailed Sketch](System-Architecture&Schematics/System-Architecture/002.png)
+![Sensor Device Detailed Sketch](Ideation/Draft/2.png)
 
 ### How it works
 The sensing device is a smart coaster placed under a cup or bottle that detects drinking-related events by monitoring weight changes.  
@@ -19,16 +21,16 @@ A load cell measures the applied force, and the signal is amplified, digitized, 
 
 ### Key components
 - **RGB LED**: NeoPixel 
-- **Load Cell**: TAL221 (100g)
-- **Load Cell Amplifier**: HX711
-- **Microcontroller**: Seeed Studio XIAO ESP32-C3
+- [**TAL221 Load Cell**](Datasheets/TAL221.pdf)  
+- [**HX711 Load Cell Amplifier**](Datasheets/hx711_english.pdf)
+- [**Seeed Studio XIAO ESP32-C3**](Datasheets/Seeed-Studio-XIAO-Series-SOM-Datasheet.pdf)
 - **Communication**: Bluetooth Low Energy (BLE)
 
 ---
 
 ## Display Device: Desktop Hydration Gauge
 
-![Display Device Detailed Sketch](System-Architecture&Schematics/System-Architecture/003.png)
+![Display Device Detailed Sketch](Ideation/Draft/3.png)
 
 ### How it works
 The display device is a desktop hydration gauge that provides an ambient, glanceable view of daily water intake.  
@@ -36,21 +38,21 @@ The display device is a desktop hydration gauge that provides an ambient, glance
 A mechanical needle shows progress from 0–100%, an RGB LED ring provides color-coded feedback, and a physical reset button allows daily tracking to be restarted.
 
 ### Key components
-- **Stepper Motor**
+- **X27 Stepper Motor**
 - **RGB LED Ring**: NeoPixel 
-- **Microcontroller**: Seeed Studio XIAO ESP32-C3
-- **OLED** (Show the number)
-- **Rotary encoder** (Set/Change the goal)
+- [**Seeed Studio XIAO ESP32-C3**](Datasheets/Seeed-Studio-XIAO-Series-SOM-Datasheet.pdf)
+- [**SSD1306 OLED**](Datasheets/SSD1306.pdf) (Show the number)
+- [**Rotary encoder**](Datasheets/RotaryEncoder-pec11.pdf) (Set/Change the goal)
 - **Reset button**
 - **Communication**: Bluetooth Low Energy (BLE)
 
 ---
 
-## System Architecture
+## Device-to-device communication
 
-![Device-to-Device Communication Diagram](System-Architecture&Schematics/System-Architecture/004.png)
+![Device-to-Device Communication Diagram](Ideation/Draft/4.png)
+![Device-to-Device Communication Diagram](Ideation/Draft/5.png)
 
-### Device-to-device communication
 The smart coaster sends processed intake data to the display device wirelessly using Bluetooth Low Energy (BLE).  
 Only high-level intake events (e.g., estimated water consumed) are transmitted, minimizing bandwidth and power usage.
 
@@ -64,9 +66,14 @@ Only high-level intake events (e.g., estimated water consumed) are transmitted, 
 
 This modular architecture separates sensing and feedback, making the system easier to debug, extend, and maintain.
 
+## System Architecture
+
 ### Schematic
-![Sensor Device](System-Architecture&Schematics/Sensor-Device/SensorDevice.svg)
-![Display Device](System-Architecture&Schematics/Display-Device/DisplayDevice.svg)
+![Sensor Device](PCB_Design/Sensor-Device/SensorDevice_v2.0.svg)
+![Display Device](PCB_Design/Display-Device/DisplayDevice_v2.0.svg)
+
+### PCB Design
+![Display PCB](PCB_Design/DIsplayPCB.png)
 
 ---
 
@@ -77,4 +84,5 @@ All component datasheets are included in the `/datasheets` folder of this reposi
 - [TAL221 Load Cell Datasheet](Datasheets/TAL221.pdf)  
 - [HX711 Load Cell Amplifier](Datasheets/hx711_english.pdf)  
 - [Seeed Studio XIAO ESP32-C3](Datasheets/Seeed-Studio-XIAO-Series-SOM-Datasheet.pdf)  
-- [WS2812B RGB LED](Datasheets/WS2812B.pdf)
+- [OLED SSD1306](Datasheets/SSD1306.pdf)
+- [Rotary Encoder](Datasheets/RotaryEncoder-pec11.pdf)
