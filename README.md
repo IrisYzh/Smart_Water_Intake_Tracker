@@ -27,11 +27,18 @@ A load cell measures the applied force, and the signal is amplified, digitized, 
 - **Hydration Reminder**: If the system detects that the user hasn't had any water for 2 hours (no weight changes detected), the coaster will pulse to remind the user to stay hydrated.
 
 ### Key components
-- **RGB LED**: NeoPixel 
+- **RGB LED**: [NeoPixel](Datasheets/SK6812RGBW-Neopixel.pdf)
 - [**TAL221 Load Cell**](Datasheets/TAL221.pdf)  
 - [**HX711 Load Cell Amplifier**](Datasheets/hx711_english.pdf)
 - [**Seeed Studio XIAO ESP32-C3**](Datasheets/Seeed-Studio-XIAO-Series-SOM-Datasheet.pdf)
 - **Communication**: Bluetooth Low Energy (BLE)
+
+### Usage Modes
+- **Sleep**: Device is off, minimal power consumption
+
+- **Monitoring**: Continuously checks weight every 3 seconds with LED feedback
+
+- **Detecting**: Actively detects weight changes and transmits data via BLE
 
 ---
 
@@ -49,12 +56,19 @@ The display device is a desktop hydration gauge that gives you a quick view of y
 
 ### Key components
 - **X27 Stepper Motor**
-- **RGB LED**: NeoPixel 
+- **RGB LED**: [NeoPixel](Datasheets/SK6812RGBW-Neopixel.pdf)
 - [**Seeed Studio XIAO ESP32-C3**](Datasheets/Seeed-Studio-XIAO-Series-SOM-Datasheet.pdf)
 - [**SSD1306 OLED**](Datasheets/SSD1306.pdf) (Show the number)
 - [**Rotary encoder**](Datasheets/RotaryEncoder-pec11.pdf) (Set/Change the goal)
 - **Reset button**
 - **Communication**: Bluetooth Low Energy (BLE)
+
+### Usage Modes
+- **Sleep**: Device is off, screen and motors powered down
+
+- **Displaying**: Shows current hydration data with ambient lighting
+
+- **Adjusting**: User interacts with buttons and rotary encoder to change settings
 
 ---
 
@@ -96,3 +110,4 @@ All component datasheets are included in the `/datasheets` folder of this reposi
 - [Seeed Studio XIAO ESP32-C3](Datasheets/Seeed-Studio-XIAO-Series-SOM-Datasheet.pdf)  
 - [OLED SSD1306](Datasheets/SSD1306.pdf)
 - [Rotary Encoder](Datasheets/RotaryEncoder-pec11.pdf)
+- [Neopixel](Datasheets/SK6812RGBW-Neopixel.pdf)
