@@ -15,9 +15,16 @@ By passively detecting drinking events through weight changes and presenting pro
 ![Sensor Device Detailed Sketch](Ideation/Draft/2.png)
 
 ### How it works
-The sensing device is a smart coaster placed under a cup or bottle that detects drinking-related events by monitoring weight changes.  
+The sensing device is a smart coaster placed under a cup or bottle that detects drinking activity by monitoring weight changes. 
 
 A load cell measures the applied force, and the signal is amplified, digitized, and processed by a microcontroller to estimate water intake based on relative weight differences over time.
+
+### Key features
+- **Drink Detection**: When the sensor detects that the cup has been lifted, the LED on the coaster begins to pulse, indicating that it's monitoring for weight changes.
+
+- **Upload Status**: Once the weight change is detected and successfully uploaded to the display device, the coaster lights up green for 3 seconds. If the upload fails, it lights up red for 3 seconds instead.
+
+- **Hydration Reminder**: If the system detects that the user hasn't had any water for 2 hours (no weight changes detected), the coaster will pulse to remind the user to stay hydrated.
 
 ### Key components
 - **RGB LED**: NeoPixel 
@@ -33,13 +40,16 @@ A load cell measures the applied force, and the signal is amplified, digitized, 
 ![Display Device Detailed Sketch](Ideation/Draft/3.png)
 
 ### How it works
-The display device is a desktop hydration gauge that provides an ambient, glanceable view of daily water intake.  
+The display device is a desktop hydration gauge that gives you a quick view of your daily water intake. It has a mechanical needle that shows your progress from 0–100%, an RGB LED ring for color-coded feedback, and a physical reset button to restart daily tracking.
 
-A mechanical needle shows progress from 0–100%, an RGB LED ring provides color-coded feedback, and a physical reset button allows daily tracking to be restarted.
+### Key features
+- **Visual Progress Tracking**: When the gauge receives a signal from the coaster, the needle moves to show how much water you've drunk today. The OLED screen below displays the exact amount and your progress percentage toward the daily goal.
+
+- **Customizable Goals**: You can press the button below the dial to reset your data, or use the rotary knob to adjust your target water intake. All information shows up on the OLED screen.
 
 ### Key components
 - **X27 Stepper Motor**
-- **RGB LED Ring**: NeoPixel 
+- **RGB LED**: NeoPixel 
 - [**Seeed Studio XIAO ESP32-C3**](Datasheets/Seeed-Studio-XIAO-Series-SOM-Datasheet.pdf)
 - [**SSD1306 OLED**](Datasheets/SSD1306.pdf) (Show the number)
 - [**Rotary encoder**](Datasheets/RotaryEncoder-pec11.pdf) (Set/Change the goal)
